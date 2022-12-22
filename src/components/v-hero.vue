@@ -1,19 +1,18 @@
 <template>
   <div class="hero">
-    <div class="hero__info">
-      <div class="hero__info-text">
-        <h2 class="hero__info-title">Luxury homeware for people who love timeless design quality</h2>
-        <span class="hero__info-description">Shop the new Spring 2022 collection today</span>
-      </div>
-      <a  class="hero__info-link" href="#">View collection</a>
-    </div>
+    <v-information-for-block
+      title="Luxury homeware for people who love timeless design quality"
+      description="Shop the new Spring 2022 collection today"
+      link="/"
+      color-link="lightgray"
+      colorDescription="$darkPurple"
+    />
+    <img src="/img/Hero.jpg" alt="" class="hero-img">
   </div>
 </template>
 
-<script>
-export default {
-  name: "v-hero"
-}
+<script setup>
+import VInformationForBlock from "./v-informationForBlock.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -26,25 +25,16 @@ export default {
     justify-content: flex-end;
     padding-right: 80px;
     max-width: 100%;
-    &__info{
-      max-width: 630px;
-      background: white;
-      height: 444px;
-      padding: 50px 55px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      &-title{
-        font-family: 'Clash Display', sans-serif;
-        font-weight: 400;
-        line-height: 1.5;
-        color: #22202E;
-      }
-      &-description{
-        color: #726E8D;
-      }
-      &-link{
-        text-decoration: none;
+    @media screen and (max-width: 767px){
+      background: transparent;
+      height: 100%;
+      padding: 0;
+      display: block;
+    }
+    &-img {
+      display: none;
+      @media screen and (max-width: 767px) {
+        display: block;
       }
     }
   }

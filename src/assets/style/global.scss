@@ -1,11 +1,23 @@
 @import url('https://fonts.cdnfonts.com/css/satoshi');
 @import url('https://fonts.cdnfonts.com/css/clash-display');
+
+$Satoshi: 'Satoshi', sans-serif;
+$Clash: 'Clash Display', sans-serif;
+$darkPrimary: #2A254B;
+$darkPurple: #5B5676;
+$light: #F9F9F9;
+$dark: #22202E;
+$black: #000;
+$white: #fff;
+
+
+
 *{
   box-sizing: border-box;
   font-weight: 400;
 }
 body{
-  font-family: 'Satoshi', sans-serif;
+  font-family: $Satoshi;
   margin: 0;
   padding: 0;
   font-size: 16px;
