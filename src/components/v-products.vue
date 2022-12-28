@@ -5,7 +5,7 @@
           v-for="product of products"
           :key="product.id"
           :img="product.img"
-          :name="product.name"
+          :name="product.title"
           :price="product.price"
       />
     </div>
@@ -24,35 +24,41 @@
 </template>
 
 <script setup>
-import {ref} from 'vue'
+
 import VProductsItem from "./v-products-item.vue";
 import VButton from "./UI/v-button.vue";
-const products = ref([
-  {
-    id: 1,
-    img: '/img/product1.jpg',
-    name: 'The Dandy chair',
-    price: 250
-  },
-  {
-    id: 2,
-    img: '/img/product2.jpg',
-    name: 'Rustic Vase Set',
-    price: 155
-  },
-  {
-    id: 3,
-    img: '/img/product3.jpg',
-    name: 'The Silky Vase',
-    price: 125
-  },
-  {
-    id: 4,
-    img: '/img/product4.jpg',
-    name: 'The Lucy Lamp',
-    price: 399
+
+const props = defineProps({
+  products:{
+    required: true
   }
-])
+})
+// const products = ref([
+//   {
+//     id: 1,
+//     img: '/img/product1.jpg',
+//     name: 'The Dandy chair',
+//     price: 250
+//   },
+//   {
+//     id: 2,
+//     img: '/img/product2.jpg',
+//     name: 'Rustic Vase Set',
+//     price: 155
+//   },
+//   {
+//     id: 3,
+//     img: '/img/product3.jpg',
+//     name: 'The Silky Vase',
+//     price: 125
+//   },
+//   {
+//     id: 4,
+//     img: '/img/product4.jpg',
+//     name: 'The Lucy Lamp',
+//     price: 399
+//   }
+// ])
 </script>
 
 <style lang="scss" scoped>
