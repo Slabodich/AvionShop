@@ -3,6 +3,7 @@
     <div class="products">
       <v-products-item
           v-for="product of products"
+          :id="product.id"
           :key="product.id"
           :img="product.img"
           :name="product.title"
@@ -33,32 +34,7 @@ const props = defineProps({
     required: true
   }
 })
-// const products = ref([
-//   {
-//     id: 1,
-//     img: '/img/product1.jpg',
-//     name: 'The Dandy chair',
-//     price: 250
-//   },
-//   {
-//     id: 2,
-//     img: '/img/product2.jpg',
-//     name: 'Rustic Vase Set',
-//     price: 155
-//   },
-//   {
-//     id: 3,
-//     img: '/img/product3.jpg',
-//     name: 'The Silky Vase',
-//     price: 125
-//   },
-//   {
-//     id: 4,
-//     img: '/img/product4.jpg',
-//     name: 'The Lucy Lamp',
-//     price: 399
-//   }
-// ])
+
 </script>
 
 <style lang="scss" scoped>
