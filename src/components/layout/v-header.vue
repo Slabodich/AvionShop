@@ -14,6 +14,7 @@
         <div class="header__top-cart">
           <router-link to="/cart">
             <img src="/svg/Shopping-cart.svg" alt="cart">
+            <span class="header__top-count" v-if="cartStore.cart.length">{{cartStore.cart.length}}</span>
           </router-link>
         </div>
         <div class="header__top-user">
@@ -50,7 +51,12 @@
 </template>
 
 <script setup>
- import {ref} from 'vue'
+  import { useCartStore } from "@/store/cart.js";
+  import {ref} from 'vue'
+
+
+  const cartStore = useCartStore()
+  const isOpenedMobileMenu = ref(false)
 
  const menu = [
    {
@@ -67,7 +73,8 @@
    },
 
  ]
- const isOpenedMobileMenu = ref(false)
+
+
 </script>
 
 <style lang="scss" scoped>
@@ -86,9 +93,25 @@
       align-items: center;
       margin: 0 28px;
 
+
       @media screen and (max-width: 767px) {
         border-bottom: none;
         padding: 20px 0;
+      }
+      &-count{
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background: black;
+        color: white;
+        font-size: 10px;
+        text-decoration: none;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        left: -15%;
+        bottom: 0;
       }
       &-icon{
         display: block;
@@ -124,6 +147,7 @@
         display: flex;
         justify-content: flex-end;
         align-items: center;
+        position: relative;
         @media screen and (max-width: 767px) {
           display: none;
         }
@@ -151,12 +175,8 @@
         position: absolute;
         background: $white;
         top: 50px;
-
         border: solid 1px black;
         width: 100%;
-        &-top{
-
-        }
         &-link{
           text-decoration: none;
           display: block;
